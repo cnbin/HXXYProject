@@ -17,6 +17,12 @@
     UILabel * _inOutLabel;
     UILabel * _iotimeLabel;
     UILabel * _shuakaLaebl;
+    
+    UILabel * _lgradeLabel;
+    UILabel * _lclassesLabel;
+    UILabel * _lstudentNameLabel;
+    UILabel * _lioOutLabel;
+    UILabel * _lshuakaLabel;
 }
 
 @end
@@ -43,9 +49,14 @@
                                        selector:@selector(updateDataMethod:)
                                        userInfo:nil
                                         repeats:YES];
+ 
     
-
 }
+
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [self.tableView setFrame:CGRectMake(0, 40, 320, self.view.frame.size.height)];
+//}
 
 -(void)updateDataMethod:(NSTimer*)timer {
  
@@ -105,26 +116,38 @@
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
-    _gradeLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, 60, 15)];
-    _classesLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 5, 60, 15)];
-    _studentNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(140, 5, 60, 15)];
-    _inOutLabel = [[UILabel alloc]initWithFrame:CGRectMake(200, 5, 100, 15)];
-    _iotimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 20, 250, 15)];
-    _shuakaLaebl = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 100, 15)];
-
-    _gradeLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    _classesLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    _studentNameLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    _inOutLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    _iotimeLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    _shuakaLaebl.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    for (int i=1; i<=4; i++) {
+//        UILabel * tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(((320.0-90)/4)*i+1, 0, 0.5, cellHeight)];
+//        tempLabel.backgroundColor=[UIColor blackColor];
+//        [cell addSubview:tempLabel];
+//    }
+    
+//    _gradeLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 12, 40, 15)];
+//    _classesLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 12, 40, 15)];
+//    _studentNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(135, 12, 40, 15)];
+//    _inOutLabel = [[UILabel alloc]initWithFrame:CGRectMake(185, 12, 50, 15)];
+//    _iotimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(245, 5, 100, 15)];
+    
+    _gradeLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, 40, 15)];
+    _classesLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 5, 40, 15)];
+    _studentNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 5, 40, 15)];
+    _inOutLabel = [[UILabel alloc]initWithFrame:CGRectMake(140, 5, 50, 15)];
+    _shuakaLaebl = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 50, 15)];
+    _iotimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, 100, 15)];
+    
+    _gradeLabel.font=[UIFont fontWithName:@"Helvetica" size:10];
+    _classesLabel.font=[UIFont fontWithName:@"Helvetica" size:10];
+    _studentNameLabel.font=[UIFont fontWithName:@"Helvetica" size:10];
+    _inOutLabel.font=[UIFont fontWithName:@"Helvetica" size:10];
+    _iotimeLabel.font=[UIFont fontWithName:@"Helvetica" size:10];
+    _shuakaLaebl.font=[UIFont fontWithName:@"Helvetica" size:10];
     
     _gradeLabel.text = [[self.listData objectAtIndex:0] objectAtIndex:row];
     _classesLabel.text = [[self.listData objectAtIndex:1] objectAtIndex:row];
     _studentNameLabel.text = [[self.listData objectAtIndex:2] objectAtIndex:row];
     _inOutLabel.text = [[self.listData objectAtIndex:3] objectAtIndex:row];
     _iotimeLabel.text = [[self.listData objectAtIndex:4] objectAtIndex:row];
-    _shuakaLaebl.text = @"刷卡时间:";
+    _shuakaLaebl.text=@"刷卡时间:";
     
     [cell.contentView addSubview:_gradeLabel];
     [cell.contentView addSubview:_classesLabel];
@@ -132,6 +155,59 @@
     [cell.contentView addSubview:_inOutLabel];
     [cell.contentView addSubview:_iotimeLabel];
     [cell.contentView addSubview:_shuakaLaebl];
+
+    
+    
+//    if (row==0) {
+//        
+//    _lgradeLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 5, 30, 30)];
+//    _lgradeLabel.text=@"年级";
+//    _lgradeLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    
+//    
+//    _lclassesLabel=[[UILabel alloc]initWithFrame:CGRectMake(75, 5, 60, 30)];
+//    _lclassesLabel.text=@"班级";
+//    _lclassesLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    
+//    
+//    _lstudentNameLabel=[[UILabel alloc]initWithFrame:CGRectMake(130, 5, 60, 30)];
+//    _lstudentNameLabel.text=@"姓名";
+//    _lstudentNameLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    
+//    _lioOutLabel=[[UILabel alloc]initWithFrame:CGRectMake(190, 5, 60, 30)];
+//    _lioOutLabel.text=@"状态";
+//    _lioOutLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    
+//    _lshuakaLabel=[[UILabel alloc]initWithFrame:CGRectMake(245, 5, 60, 30)];
+//    _lshuakaLabel.text=@"刷卡时间";
+//    _lshuakaLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+//     [cell.contentView addSubview:_lgradeLabel];
+//     [cell.contentView addSubview:_lclassesLabel];
+//     [cell.contentView addSubview:_lstudentNameLabel];
+//     [cell.contentView addSubview:_lioOutLabel];
+//     [cell.contentView addSubview:_lshuakaLabel];
+//
+//    }
+    
+//    for(int i=0;i<[[self.listData objectAtIndex:2] count];i++)
+//    {
+//        if(row == (i+1))
+//        {
+//        _gradeLabel.text = [[self.listData objectAtIndex:0] objectAtIndex:i];
+//        _classesLabel.text = [[self.listData objectAtIndex:1] objectAtIndex:i];
+//        _studentNameLabel.text = [[self.listData objectAtIndex:2] objectAtIndex:i];
+//        _inOutLabel.text = [[self.listData objectAtIndex:3] objectAtIndex:i];
+//        _iotimeLabel1.text = [[self.listData objectAtIndex:4] objectAtIndex:i];
+//        _iotimeLabel2.text = [[self.listData objectAtIndex:5] objectAtIndex:i];
+//        
+//        [cell.contentView addSubview:_gradeLabel];
+//        [cell.contentView addSubview:_classesLabel];
+//        [cell.contentView addSubview:_studentNameLabel];
+//        [cell.contentView addSubview:_inOutLabel];
+//        [cell.contentView addSubview:_iotimeLabel1];
+//        [cell.contentView addSubview:_iotimeLabel2];
+//      }
+//    }
     
     cell.userInteractionEnabled = NO;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

@@ -58,16 +58,6 @@
     [passwordText.layer setBorderColor:colorref];
     [self.view addSubview:passwordText];
     
-    pswText =[[UITextField alloc]initWithFrame:CGRectMake(20,270,280, 30)];
-    pswText.placeholder=@" 请输入密码";
-    pswText.textAlignment =NSTextAlignmentLeft;
-    pswText.returnKeyType=UIReturnKeyDone;
-    pswText.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [pswText.layer setBorderWidth:1.0];
-    [pswText.layer setCornerRadius:8.0];
-    [pswText.layer setBorderColor:colorref];
-    [self.view addSubview:pswText];
-    
     UIImageView *codeImage = [[UIImageView alloc] initWithFrame:CGRectMake(260, 225, 40, 30)];
     codeImage.userInteractionEnabled = YES;
     
@@ -80,7 +70,7 @@
     [self.view addSubview:codeImage];
     
     loginButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    loginButton.frame=CGRectMake(20, pswText.frame.origin.y+pswText.frame.size.height+20, 280, 30);
+    loginButton.frame=CGRectMake(20, passwordText.frame.origin.y+40, 280, 30);
     [loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [loginButton setBackgroundColor:SystemThemeColor];
     [loginButton.layer setBorderWidth:1.0];
@@ -142,47 +132,44 @@
     
      [self.delegate LoginViewController:self];
     
-//    switch (button.tag) {
-//        case 1:
-//        {
-//            if (phonenumText.text.length == 0) {
-//                [self.view makeToast:@"用户名不能为空。" duration:1.0 position:@"center"];
-//                return;
-//            }
-//            if (![phonenumText.text isEqual:@"1"]) {
-//                [self.view makeToast:@"请输入正确用户名。" duration:1.0 position:@"center"];
-//                return;
-//                
-//            }
-//            if (passwordText.text.length == 0) {
-//                [self.view makeToast:@"密码不能为空。" duration:1.0 position:@"center"];
-//                return;
-//            }
-//            
-//            if (![pswText.text isEqualToString:@"12"]) {
-//                [self.view makeToast:@"请输入正确密码。" duration:1.0 position:@"center"];
-//                return;
-//            }
-//            
-//            if (![self checkCode:passwordText.text]) {
-//                [self.view makeToast:@"验证码错误，请重新输入！" duration:1.0 position:@"center"];
-//                return;
-//            }
-//            
-//            [self startRequest];
-//            
-//        }
-//            break;
-//        case 2:
-//        {
-//            NSLog(@"请注册");
-//            ForgetPasswordViewController * forgetPasswordViewController=[[ForgetPasswordViewController alloc]init];
-//            [self presentViewController: forgetPasswordViewController animated:YES completion:nil];
-//        }
-//            
-//        default:
-//            break;
-//    }
+    switch (button.tag) {
+        case 1:
+        {
+            if (phonenumText.text.length == 0) {
+                [self.view makeToast:@"手机号不能为空。" duration:1.0 position:@"center"];
+                return;
+            }
+            
+            if (![phonenumText.text isEqual:@"1"]) {
+                [self.view makeToast:@"请输入正确手机号。" duration:1.0 position:@"center"];
+                return;
+                
+            }
+            
+            if (passwordText.text.length == 0) {
+                [self.view makeToast:@"动态密码不能为空。" duration:1.0 position:@"center"];
+                return;
+            }
+            
+            if (![self checkCode:passwordText.text]) {
+                [self.view makeToast:@"动态密码错误，请重新输入！" duration:1.0 position:@"center"];
+                return;
+            }
+            
+            [self startRequest];
+            
+        }
+            break;
+        case 2:
+        {
+            NSLog(@"请注册");
+            ForgetPasswordViewController * forgetPasswordViewController=[[ForgetPasswordViewController alloc]init];
+            [self presentViewController: forgetPasswordViewController animated:YES completion:nil];
+        }
+            
+        default:
+            break;
+    }
 }
 
 /*
@@ -221,17 +208,17 @@
 //        
 //    }
     
-    NSString *strURL = [[NSString alloc] initWithFormat:@"http://192.168.40.10/webservice/WebService1.asmx"];
+
+    NSString *strURL = [[NSString alloc] initWithFormat:@"http://192.168.66.146/HXXYWebservice/HXXY.asmx"];
     NSURL *url = [NSURL URLWithString:[strURL URLEncodedString]];
     
     NSString * envelopeText = [NSString stringWithFormat:@"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"
                                "<soap:Body>"
-                               "<GetUserInfo xmlns=\"http://tempuri.org/\">"
+                               "<GetLogin xmlns=\"http://tempuri.org/\">"
                                "<i>%@</i>"
-                              " <j>%@</j>"
                                "</GetUserInfo>"
                                "</soap:Body>"
-                               "</soap:Envelope>",phonenumText.text,pswText.text];
+                               "</soap:Envelope>",phonenumText.text];
     
     NSData *envelope = [envelopeText dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -271,15 +258,10 @@
     if ([string isEqualToString:@""]) {
         return;
     }
-    
-//    if([_currentTagName isEqualToString:@"string"])
-//    {
-//        [_dict setObject:string forKey:@"string"];
-//    }
-//    
-    if([_currentTagName isEqualToString:@"GetUserInfoResult"])
+
+    if([_currentTagName isEqualToString:@"GetLoginResult"])
     {
-        [_dict setObject:string forKey:@"GetUserInfoResult"];
+        [_dict setObject:string forKey:@"GetLoginResult"];
     }
     
 }
@@ -298,21 +280,10 @@
 }
 
 - (void) connectionDidFinishLoading: (NSURLConnection*) connection {
-//     NSLog(@"请求完成...");
-//     NSLog(@"string %@",[_dict objectForKey:@"string"]);
-//    if ([[_dict objectForKey:@"string"]isEqualToString:@"1"]) {
-//        
-//        [self.view makeToast:@"登陆成功" duration:1.0 position:@"center"];
-//        double delayInSeconds = 1.0;
-//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//            [self.delegate LoginViewController:self];
-//        });
-//    }
     
      NSLog(@"请求完成...");
-     NSLog(@"GetUserInfoResult %@",[_dict objectForKey:@"GetUserInfoResult"]);
-    if ([[_dict objectForKey:@"GetUserInfoResult"]isEqualToString:@"1"]) {
+     NSLog(@"GetUserInfoResult %@",[_dict objectForKey:@"GetLoginResult"]);
+    if ([[_dict objectForKey:@"GetLoginResult"]isEqualToString:@"1"]) {
 
         [self.view makeToast:@"登陆成功" duration:1.0 position:@"center"];
         double delayInSeconds = 1.0;

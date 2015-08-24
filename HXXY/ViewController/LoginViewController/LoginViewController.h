@@ -21,8 +21,6 @@
 {
     UITextField * phonenumText;
     UITextField * passwordText;
-    UITextField * pswText;
-    
     UIButton *loginButton;
     UIButton * forgetButton;
     
@@ -33,7 +31,6 @@
 
 // 当前标签的名字 ,currentTagName 用于存储正在解析的元素名
 @property (strong ,nonatomic) NSString * currentTagName;
-
 @property (strong,nonatomic) NSMutableDictionary * dict;
 
 @end

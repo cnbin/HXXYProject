@@ -26,7 +26,6 @@
 		1810F8191A3583FD002B0F8A /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810F8181A3583FD002B0F8A /* DXAlertView.m */; };
 		1820E1DA1A5E12800077F2D2 /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820E1D91A5E12800077F2D2 /* BadgeView.m */; };
 		1820E1DD1A5E12B70077F2D2 /* globeResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820E1DC1A5E12B70077F2D2 /* globeResource.m */; };
-		182680941A68DFD200258F2A /* HomeworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182680931A68DFD200258F2A /* HomeworkViewController.m */; };
 		1826E0C11A63D967006283B1 /* myselfAddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1826E0C01A63D967006283B1 /* myselfAddButton.m */; };
 		1827EA491A67AADD00324A33 /* TablegGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827EA481A67AADD00324A33 /* TablegGroupViewController.m */; };
 		182926541A65F26400E925D1 /* userTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182926531A65F26400E925D1 /* userTableViewCell.m */; };
@@ -34,6 +33,10 @@
 		183C7B181A1AFB3A00825428 /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 183C7B171A1AFB3A00825428 /* 120.png */; };
 		1840C2491A52575000A1446B /* PanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1840C2481A52575000A1446B /* PanNavigationController.m */; };
 		1841CED21A6667D30034184A /* YingYongTuiJianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841CED11A6667D30034184A /* YingYongTuiJianViewController.m */; };
+		185605791B882A6200F568FC /* HomeworkNoteBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856056E1B882A6200F568FC /* HomeworkNoteBL.m */; };
+		1856057A1B882A6200F568FC /* HomeworkNoteDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 185605731B882A6200F568FC /* HomeworkNoteDAO.m */; };
+		1856057B1B882A6200F568FC /* HomworkNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 185605751B882A6200F568FC /* HomworkNote.m */; };
+		1856057C1B882A6200F568FC /* HomeworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185605781B882A6200F568FC /* HomeworkViewController.m */; };
 		1856A7601AAE837900647AE6 /* NSNumber+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856A75D1AAE837900647AE6 /* NSNumber+Message.m */; };
 		1856A7611AAE837900647AE6 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856A75F1AAE837900647AE6 /* NSString+URLEncoding.m */; };
 		185CD6251A4BF1BD00DCF912 /* RADataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CD6101A4BF1BD00DCF912 /* RADataObject.m */; };
@@ -170,8 +173,6 @@
 		1820E1D91A5E12800077F2D2 /* BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BadgeView.m; path = View/BadgeView.m; sourceTree = "<group>"; };
 		1820E1DB1A5E12B70077F2D2 /* globeResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globeResource.h; path = View/globeResource.h; sourceTree = "<group>"; };
 		1820E1DC1A5E12B70077F2D2 /* globeResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = globeResource.m; path = View/globeResource.m; sourceTree = "<group>"; };
-		182680921A68DFD200258F2A /* HomeworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeworkViewController.h; path = HXXY/ViewController/MainViewController/HomeworkViewController.h; sourceTree = "<group>"; };
-		182680931A68DFD200258F2A /* HomeworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeworkViewController.m; path = HXXY/ViewController/MainViewController/HomeworkViewController.m; sourceTree = "<group>"; };
 		1826E0BF1A63D967006283B1 /* myselfAddButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myselfAddButton.h; path = View/myselfAddButton.h; sourceTree = "<group>"; };
 		1826E0C01A63D967006283B1 /* myselfAddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myselfAddButton.m; path = View/myselfAddButton.m; sourceTree = "<group>"; };
 		1827EA471A67AADD00324A33 /* TablegGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TablegGroupViewController.h; path = HXXY/ViewController/LoginViewController/TablegGroupViewController.h; sourceTree = "<group>"; };
@@ -185,6 +186,16 @@
 		1840C2481A52575000A1446B /* PanNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanNavigationController.m; path = HXXY/ViewController/LoginViewController/PanNavigationController.m; sourceTree = "<group>"; };
 		1841CED01A6667D30034184A /* YingYongTuiJianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YingYongTuiJianViewController.h; path = HXXY/ViewController/MainViewController/YingYongTuiJianViewController.h; sourceTree = "<group>"; };
 		1841CED11A6667D30034184A /* YingYongTuiJianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YingYongTuiJianViewController.m; path = HXXY/ViewController/MainViewController/YingYongTuiJianViewController.m; sourceTree = "<group>"; };
+		1856056D1B882A6200F568FC /* HomeworkNoteBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkNoteBL.h; sourceTree = "<group>"; };
+		1856056E1B882A6200F568FC /* HomeworkNoteBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkNoteBL.m; sourceTree = "<group>"; };
+		1856056F1B882A6200F568FC /* HomeworkNoteBLDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkNoteBLDelegate.h; sourceTree = "<group>"; };
+		185605711B882A6200F568FC /* HomeworkNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkNote.h; sourceTree = "<group>"; };
+		185605721B882A6200F568FC /* HomeworkNoteDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkNoteDAO.h; sourceTree = "<group>"; };
+		185605731B882A6200F568FC /* HomeworkNoteDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkNoteDAO.m; sourceTree = "<group>"; };
+		185605741B882A6200F568FC /* HomeworkNoteDAODelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkNoteDAODelegate.h; sourceTree = "<group>"; };
+		185605751B882A6200F568FC /* HomworkNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomworkNote.m; sourceTree = "<group>"; };
+		185605771B882A6200F568FC /* HomeworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeworkViewController.h; sourceTree = "<group>"; };
+		185605781B882A6200F568FC /* HomeworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeworkViewController.m; sourceTree = "<group>"; };
 		1856A75C1AAE837900647AE6 /* NSNumber+Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+Message.h"; path = "WebService/NSNumber+Message.h"; sourceTree = "<group>"; };
 		1856A75D1AAE837900647AE6 /* NSNumber+Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+Message.m"; path = "WebService/NSNumber+Message.m"; sourceTree = "<group>"; };
 		1856A75E1AAE837900647AE6 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "WebService/NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -440,11 +451,10 @@
 		1841CECC1A6667640034184A /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1856056B1B882A6200F568FC /* Homework */,
 				18F15C391B83415500A002BA /* PingAnXiaoYuan */,
 				1841CED01A6667D30034184A /* YingYongTuiJianViewController.h */,
 				1841CED11A6667D30034184A /* YingYongTuiJianViewController.m */,
-				182680921A68DFD200258F2A /* HomeworkViewController.h */,
-				182680931A68DFD200258F2A /* HomeworkViewController.m */,
 				18AB55AA1A8494A700039B81 /* HuoDongTouPiaoViewController.h */,
 				18AB55AB1A8494A700039B81 /* HuoDongTouPiaoViewController.m */,
 				18AB55AD1A849CAA00039B81 /* HuoDongXiangQingViewController.h */,
@@ -453,6 +463,48 @@
 				18C6F3181A85A090000FB0E6 /* TouPiaoJieGuoViewController.m */,
 			);
 			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		1856056B1B882A6200F568FC /* Homework */ = {
+			isa = PBXGroup;
+			children = (
+				1856056C1B882A6200F568FC /* BusinessLogicLayer */,
+				185605701B882A6200F568FC /* PersistenceLayer */,
+				185605761B882A6200F568FC /* PresentationLayer */,
+			);
+			name = Homework;
+			path = HXXY/ViewController/MainViewController/Homework;
+			sourceTree = "<group>";
+		};
+		1856056C1B882A6200F568FC /* BusinessLogicLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1856056D1B882A6200F568FC /* HomeworkNoteBL.h */,
+				1856056E1B882A6200F568FC /* HomeworkNoteBL.m */,
+				1856056F1B882A6200F568FC /* HomeworkNoteBLDelegate.h */,
+			);
+			path = BusinessLogicLayer;
+			sourceTree = "<group>";
+		};
+		185605701B882A6200F568FC /* PersistenceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				185605711B882A6200F568FC /* HomeworkNote.h */,
+				185605721B882A6200F568FC /* HomeworkNoteDAO.h */,
+				185605731B882A6200F568FC /* HomeworkNoteDAO.m */,
+				185605741B882A6200F568FC /* HomeworkNoteDAODelegate.h */,
+				185605751B882A6200F568FC /* HomworkNote.m */,
+			);
+			path = PersistenceLayer;
+			sourceTree = "<group>";
+		};
+		185605761B882A6200F568FC /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				185605771B882A6200F568FC /* HomeworkViewController.h */,
+				185605781B882A6200F568FC /* HomeworkViewController.m */,
+			);
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		1856A75B1AAE832600647AE6 /* WebService */ = {
@@ -987,6 +1039,7 @@
 			files = (
 				18F2A1E41A4AC9A000971653 /* SDWebImageManager.m in Sources */,
 				18F2A1E51A4AC9A000971653 /* SDWebImagePrefetcher.m in Sources */,
+				185605791B882A6200F568FC /* HomeworkNoteBL.m in Sources */,
 				1810F7FE1A3582C0002B0F8A /* YiJianFangKuiViewController.m in Sources */,
 				1810F7EE1A357C8A002B0F8A /* AFURLSessionManager.m in Sources */,
 				18F2A1DE1A4AC9A000971653 /* NSData+ImageContentType.m in Sources */,
@@ -996,10 +1049,12 @@
 				1810F8101A358365002B0F8A /* TablelistViewController.m in Sources */,
 				18F2A1E91A4AC9A000971653 /* UIImageView+WebCache.m in Sources */,
 				18C4F8481A40148B008F01EF /* CustomURLCache.m in Sources */,
+				1856057B1B882A6200F568FC /* HomworkNote.m in Sources */,
 				1810F7E81A357C8A002B0F8A /* AFHTTPSessionManager.m in Sources */,
 				1810F80F1A358365002B0F8A /* LoginViewController.m in Sources */,
 				1856A7601AAE837900647AE6 /* NSNumber+Message.m in Sources */,
 				1840C2491A52575000A1446B /* PanNavigationController.m in Sources */,
+				1856057A1B882A6200F568FC /* HomeworkNoteDAO.m in Sources */,
 				18F2A1E81A4AC9A000971653 /* UIImage+MultiFormat.m in Sources */,
 				185CD62C1A4BF1BD00DCF912 /* RATreeView+Private.m in Sources */,
 				18F2A1E71A4AC9A000971653 /* UIImage+GIF.m in Sources */,
@@ -1017,7 +1072,6 @@
 				185CD62E1A4BF1BD00DCF912 /* RATreeView+TableViewDelegate.m in Sources */,
 				1820E1DD1A5E12B70077F2D2 /* globeResource.m in Sources */,
 				18AB55AC1A8494A700039B81 /* HuoDongTouPiaoViewController.m in Sources */,
-				182680941A68DFD200258F2A /* HomeworkViewController.m in Sources */,
 				185CD6261A4BF1BD00DCF912 /* RATreeNode.m in Sources */,
 				1810F8191A3583FD002B0F8A /* DXAlertView.m in Sources */,
 				18C4F84E1A401FD8008F01EF /* WebManagerController.m in Sources */,
@@ -1049,6 +1103,7 @@
 				18F15C4A1B8342B000A002BA /* PingAnXiaoYuanViewController.m in Sources */,
 				1899F1D31A416F280068E8E7 /* IntroduceViewController.m in Sources */,
 				185CD6251A4BF1BD00DCF912 /* RADataObject.m in Sources */,
+				1856057C1B882A6200F568FC /* HomeworkViewController.m in Sources */,
 				1826E0C11A63D967006283B1 /* myselfAddButton.m in Sources */,
 				18CD0B3F1A3BDF3F00B812B4 /* RegisterViewController.m in Sources */,
 				1810F7E71A357C8A002B0F8A /* AFHTTPRequestOperationManager.m in Sources */,

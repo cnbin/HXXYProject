@@ -50,6 +50,7 @@
 }
 
 -(void)buttonAction:(UIButton *)button{
+    
     if (saveLoginText.text.length == 0) {
         [self.view makeToast:@"密码不能为空。" duration:1.0 position:@"center"];
         return;
@@ -59,7 +60,9 @@
         return;
     }
     
-    [self startRequest];
+    [self.delegate SaveLoginViewController:self];
+    
+   // [self startRequest];
     
    
 }

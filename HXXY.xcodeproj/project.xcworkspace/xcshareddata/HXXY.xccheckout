@@ -10,7 +10,7 @@
 	<string>HXXY</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6D4EF17318FB0A54598D048440F3938B8EB7FB7A</key>
+		<key>817CF55ED6DF5A6ED5001DE6DF202C4C448DBBE7</key>
 		<string>https://github.com/cnbin/HXXYProject.git</string>
 		<key>AC473F3CF83FE8F0CF72E24E805B8A9AD6F51D0F</key>
 		<string>https://github.com/runningJohn/hxxy.git</string>
@@ -19,7 +19,7 @@
 	<string>HXXY.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6D4EF17318FB0A54598D048440F3938B8EB7FB7A</key>
+		<key>817CF55ED6DF5A6ED5001DE6DF202C4C448DBBE7</key>
 		<string>../..</string>
 		<key>AC473F3CF83FE8F0CF72E24E805B8A9AD6F51D0F</key>
 		<string>../../../HXXY_3_11_2webservice_soap%E8%AF%B7%E6%B1%82</string>
@@ -29,7 +29,7 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6D4EF17318FB0A54598D048440F3938B8EB7FB7A</string>
+	<string>817CF55ED6DF5A6ED5001DE6DF202C4C448DBBE7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -44,7 +44,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6D4EF17318FB0A54598D048440F3938B8EB7FB7A</string>
+			<string>817CF55ED6DF5A6ED5001DE6DF202C4C448DBBE7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>HXXYProject</string>
 		</dict>

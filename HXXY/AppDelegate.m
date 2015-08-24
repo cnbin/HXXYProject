@@ -110,7 +110,7 @@
 -(void)showChooseStudent{
     ChooseStudentViewController * chooseStudentViewController=[[ChooseStudentViewController alloc]init];
     chooseStudentViewController.delegate=self;
-   UINavigationController * chooseStudentNavigationController = [[UINavigationController alloc] initWithRootViewController:chooseStudentViewController];
+    UINavigationController * chooseStudentNavigationController = [[UINavigationController alloc] initWithRootViewController:chooseStudentViewController];
     self.window.rootViewController=chooseStudentNavigationController;
 }
 

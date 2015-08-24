@@ -6,39 +6,37 @@
 //  Copyright (c) 2015 华讯网络投资有限公司. All rights reserved.
 //
 
-#import "NoteDAO.h"
+#import "HomeworkNoteDAO.h"
 
-@implementation NoteDAO
+@implementation HomeworkNoteDAO
 
 
 //查询所有数据方法
 -(void) findAll
 {
-    _GradeArray=[[NSMutableArray alloc]init];
-    _ClassesArray=[[NSMutableArray alloc]init];
-    _StudentNameArray=[[NSMutableArray alloc]init];
-    _InOutArray=[[NSMutableArray alloc]init];
-    _IotimeArray=[[NSMutableArray alloc]init];
+    _titleArray = [[NSMutableArray alloc]init];
+    _contentArray = [[NSMutableArray alloc]init];
+    _datetimeArray = [[NSMutableArray alloc]init];
     _listData = [[NSMutableArray alloc]init];
-   
+
     [self startRequest];
 
 }
 
 //插入Note方法
--(void) create:(Note*)model
+-(void) create:(HomeworkNote*)model
 {
     
 }
 
 //删除Note方法
--(void) remove:(Note*)model
+-(void) remove:(HomeworkNote*)model
 {
 
 }
 
 //修改Note方法
--(void) modify:(Note*)model
+-(void) modify:(HomeworkNote*)model
 {
 
 }
@@ -51,7 +49,7 @@
     
     NSString * envelopeText = [NSString stringWithFormat:@"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"
                                "<soap:Body>"
-                               "<GetCardRecordList xmlns=\"http://tempuri.org/\" />"
+                               "<GetHomework xmlns=\"http://tempuri.org/\" />"
                                "</soap:Body>"
                                "</soap:Envelope>"];
     
@@ -68,7 +66,7 @@
                                    initWithRequest:request delegate:self];
     
     if (connection) {
-      
+        
     }
 }
 
@@ -76,7 +74,7 @@
 #pragma mark 接受到响应
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    if (!self.receiveData) {
+       if (!self.receiveData) {
         self.receiveData = [NSMutableData data];
     } else {
         [self.receiveData setData:nil];
@@ -88,6 +86,7 @@
   
     [self.receiveData appendData:data];
    
+
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError: (NSError *)error {
@@ -103,13 +102,7 @@
     parser.delegate = self;
     [parser parse];
     
-    _GradeArray = (NSMutableArray *)[[_GradeArray reverseObjectEnumerator] allObjects];
-    _ClassesArray = (NSMutableArray *)[[_ClassesArray reverseObjectEnumerator] allObjects];
-    _StudentNameArray = (NSMutableArray *)[[_StudentNameArray reverseObjectEnumerator] allObjects];
-    _InOutArray = (NSMutableArray *)[[_InOutArray reverseObjectEnumerator] allObjects];
-    _IotimeArray = (NSMutableArray *)[[ _IotimeArray reverseObjectEnumerator] allObjects];
- 
-    _listData = [NSMutableArray arrayWithObjects:_GradeArray,_ClassesArray,_StudentNameArray,_InOutArray,_IotimeArray,nil];
+    _listData = [NSMutableArray arrayWithObjects:_titleArray,_contentArray,_datetimeArray,nil];
     [self.delegate findAllFinished:_listData];
     
 }
@@ -134,46 +127,23 @@
     if ([string isEqualToString:@""]) {
         return;
     }
-
-    if ([_currentTagName isEqualToString:@"GradeName"]) {
-        
-        [_GradeArray addObject:string];
-    }
     
-    if([_currentTagName isEqualToString:@"ClassesName"])
+    NSLog(@"string is %@",string);
+    if ([_currentTagName isEqualToString:@"Title"]) {
+        
+        [_titleArray addObject:string];
+        
+    }
+    if([_currentTagName isEqualToString:@"Content"])
     {
-        [_ClassesArray addObject:string];
+        
+        [_contentArray addObject:string];
+    }
+    if ([_currentTagName isEqualToString:@"Time"]) {
+        
+        [_datetimeArray addObject:string];
     }
     
-    if ([_currentTagName isEqualToString:@"StudentName"]) {
-        
-        [_StudentNameArray addObject:string];
-
-    }
-    
-    if ([_currentTagName isEqualToString:@"InOut"]) {
-        
-        NSString * IoOutString = [string stringByReplacingOccurrencesOfString:@"进" withString:@"已到校"];
-        [_InOutArray addObject:IoOutString];
-    }
-    
-    if ([_currentTagName isEqualToString:@"CreateDate"]) {
-        
-//        方法一
-        NSMutableString * CurrentString  = [[NSMutableString alloc]initWithString:string];
-        NSRange range = NSMakeRange(10, 1);
-        [CurrentString replaceOccurrencesOfString:@"T" withString:@" " options:NSCaseInsensitiveSearch range:range];
-        NSString * finalString =  [[CurrentString stringByReplacingOccurrencesOfString:@"." withString:@" "] substringToIndex:19];
-        [_IotimeArray addObject:finalString];
-        
-//       NSString *CurrentString = [string substringToIndex:10];
-//       [_IotimeArray1 addObject:CurrentString];
-//        
-//        NSRange range = NSMakeRange(11,8);
-//        NSString *IotimeString= [string substringWithRange:range];
-//        [_IotimeArray2 addObject:IotimeString];
-    }
-
 }
 
 @end
