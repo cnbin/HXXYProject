@@ -55,7 +55,7 @@
         [self.view makeToast:@"密码不能为空。" duration:1.0 position:@"center"];
         return;
     }
-    if (![saveLoginText.text isEqual:@"1"]) {
+    if (![saveLoginText.text isEqual:@"1234"]) {
         [self.view makeToast:@"密码错误。" duration:1.0 position:@"center"];
         return;
     }

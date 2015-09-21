@@ -46,7 +46,7 @@
 
 -(void)startRequest{
     
-    NSString *strURL = [[NSString alloc] initWithFormat:@"http://192.168.66.146/HXXYWebservice/HXXY.asmx"];
+    NSString *strURL = [[NSString alloc] initWithFormat:@"http://192.168.20.5/HXXYWebservice/HXXY.asmx"];
     NSURL *url = [NSURL URLWithString:[strURL URLEncodedString]];
     
     NSString * envelopeText = [NSString stringWithFormat:@"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"

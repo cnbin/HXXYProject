@@ -117,17 +117,16 @@
             break;
         case 4:
         {
-//            PingAnXiaoYuanViewController * pingAnXiaoYuanViewController=[[PingAnXiaoYuanViewController alloc]init];
-//            [self.navigationController pushViewController:pingAnXiaoYuanViewController animated:YES];
-             PingAnXiaoYuanViewController *   pingAnXiaoYuanViewController=[[ PingAnXiaoYuanViewController alloc]init];
+            
+             PingAnXiaoYuanViewController * pingAnXiaoYuanViewController=[[PingAnXiaoYuanViewController alloc]init];
             [self presentViewController:[[UINavigationController alloc] initWithRootViewController: pingAnXiaoYuanViewController] animated:YES completion:nil];
             
         }
             break;
         case 5:
         {
-            HomeworkViewController *  homework=[[HomeworkViewController alloc]init];
-            [self.navigationController pushViewController:homework animated:YES];
+            HomeworkViewController * homework=[[HomeworkViewController alloc]init];
+            [self presentViewController:[[UINavigationController alloc]initWithRootViewController: homework] animated:YES completion:nil];
         }
             break;
         case 6:

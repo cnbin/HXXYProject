@@ -49,8 +49,21 @@
                                        selector:@selector(updateDataMethod:)
                                        userInfo:nil
                                         repeats:YES];
+    
+    UIBarButtonItem *buttonImage = [[ UIBarButtonItem alloc ] initWithImage:
+                                    [ UIImage imageNamed:@"nav_backbtn"]
+                                                                      style: UIBarButtonItemStylePlain
+                                                                     target: self
+                                                                     action: @selector(navback:)
+                                    ];
+    
+    self.navigationItem.leftBarButtonItem = buttonImage;
  
     
+}
+
+-(void)navback:(UIButton *)button{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //- (void)viewDidAppear:(BOOL)animated

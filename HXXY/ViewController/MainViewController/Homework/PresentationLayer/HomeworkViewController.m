@@ -27,16 +27,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"家庭作业";
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    _scrollView.contentSize = CGSizeMake(320,520);
+//    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+//    _scrollView.contentSize = CGSizeMake(320,520);
     
-    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,40, self.view.frame.size.width,self.view.frame.size.height)];
+    _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width,self.view.frame.size.height)];
     _tableView.delegate =self;
     _tableView.dataSource = self;
     _tableView.scrollEnabled=YES;
     [_tableView setSeparatorColor:[UIColor blackColor]];//设置分割线颜色
-    [_scrollView  addSubview:_tableView];
-    [self.view addSubview:_scrollView];
+    
+    [self.view addSubview:_tableView];
+   // [_scrollView  addSubview:_tableView];
+    //[self.view addSubview:_scrollView];
     
     _bl = [HomeworkNoteBL new];
     _bl.delegate = self;
@@ -49,7 +51,22 @@
                                    userInfo:nil
                                     repeats:YES];
     
+    UIBarButtonItem *buttonImage = [[ UIBarButtonItem alloc ] initWithImage:
+                                    [ UIImage imageNamed:@"nav_backbtn"]
+                                                                      style: UIBarButtonItemStylePlain
+                                                                     target: self
+                                                                     action: @selector(navback:)
+                                    ];
+    
+    self.navigationItem.leftBarButtonItem = buttonImage;
+    
+    
 }
+
+-(void)navback:(UIButton *)button{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -59,30 +76,30 @@
 -(void)titleView{
     
     for (int i=1; i<=2; i++) {
-        UILabel * tempLabel=[[UILabel alloc]initWithFrame:CGRectMake((320/3.0)*i+1, 0, 0.5, 40)];
+        UILabel * tempLabel=[[UILabel alloc]initWithFrame:CGRectMake((320/3.0)*i+1, 0, 0.5, 42)];
         tempLabel.backgroundColor=[UIColor blackColor];
-        [_scrollView addSubview:tempLabel];
+        [_tableView addSubview:tempLabel];
     }
     
-    UILabel * tempLabelrow=[[UILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 0.5)];
-    tempLabelrow.backgroundColor=[UIColor blackColor];
-    [_scrollView addSubview:tempLabelrow];
+//    UILabel * tempLabelrow=[[UILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 0.5)];
+//    tempLabelrow.backgroundColor=[UIColor blackColor];
+//    [_tableView addSubview:tempLabelrow];
 
 
     _bianhaoLabel=[[UILabel alloc]initWithFrame:CGRectMake(45, 5, 30, 30)];
     _bianhaoLabel.text=@"编号";
     _bianhaoLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    [_scrollView addSubview:_bianhaoLabel];
+    [_tableView addSubview:_bianhaoLabel];
 
     _homeworkLabel=[[UILabel alloc]initWithFrame:CGRectMake(135, 5, 60, 30)];
     _homeworkLabel.text=@"作业内容";
     _homeworkLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    [_scrollView addSubview:_homeworkLabel];
+    [_tableView addSubview:_homeworkLabel];
 
     _sendtimeLabel=[[UILabel alloc]initWithFrame:CGRectMake(240, 5, 60, 30)];
     _sendtimeLabel.text=@"发送时间";
     _sendtimeLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    [_scrollView addSubview:_sendtimeLabel];
+    [_tableView addSubview:_sendtimeLabel];
 }
 
 -(void)updateDataMethod:(NSTimer*)timer {
